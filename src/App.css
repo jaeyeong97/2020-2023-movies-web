@@ -1,38 +1,301 @@
-.App {
+.movieHeader {
+  background-color: #0f0f0f;
+}
+.movieHeader h1 a {
+  display: block;
   text-align: center;
+  line-height: 100px;
+  padding-top: 37px;
+  font-size: 35px;
+  color: #ececec;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movieHeader .years_wrap {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+.movieHeader .years_wrap > button {
+  margin: 0 8px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  background-color: #ececec;
+  color: #747474;
+  font-size: 16px;
+  font-weight: 600;
+}
+.movieHeader .selected {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.movieHeader .selected span {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 60px;
+  color: #ececec;
+}
+.movieHeader .selected input {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  width: 20vw;
+  line-height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.movieHeader .selected input:focus {
+  outline: none;
+}
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 20px 0 20px;
+  background-color: #0f0f0f;
+  min-height: 100vh;
+}
+.movieItem {
+  width: 200px;
+  margin: 20px 5px;
+}
+.movieItem .photo_wrap {
+  position: relative;
+}
+.movieItem .photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.movieItem .learnMore {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.3s;
+}
+.movieItem .learnMore button {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
+  font-size: 25px;
 }
-
-.App-link {
-  color: #61dafb;
+.movieItem .learnMore:hover {
+  opacity: 1;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.movieItem .movie_txt {
+  margin-top: 8px;
+}
+.movieItem .movie_txt .mt1 {
+  display: flex;
+  align-items: flex-start;
+  height: 40px;
+}
+.movieItem .movie_txt span {
+  color: #ececec;
+}
+.movieItem .movie_txt .age {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 700;
+  color: #111;
+  background-color: #e7d000;
+  border: 2px solid #fff;
+}
+.movieItem .movie_txt .title {
+  display: inline-block;
+  width: 85%;
+  margin-left: 5px;
+}
+.movieItem .movie_txt .mt2 {
+  display: flex;
+  flex-direction: column;
+}
+.movieItem .movie_txt .mt2 .length {
+  margin-top: 5px;
+  align-self: flex-end;
+}
+.modal {
+  display: none;
+}
+.modal.show {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: scroll;
+}
+.movieModal .modalClose {
+  position: absolute;
+  top: 5vh;
+  right: 3vw;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+}
+.movieModal .modalClose::before,
+.movieModal .modalClose::after {
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 0;
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.movieModal .modalClose::before {
+  transform: rotate(45deg);
+}
+.movieModal .modalClose::after {
+  transform: rotate(-45deg);
+}
+.movieModal .modal_wrap {
+  display: flex;
+  justify-content: center;
+  margin: 7vh 0;
+}
+.movieModal .modal_wrap .photo {
+  width: 30vw;
+}
+.movieModal .modal_wrap .photo img {
+  width: 100%;
+  height: auto;
+}
+.movieModal .modal_wrap .contents {
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+.movieModal .modal_wrap .contents .title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1em;
+  margin-bottom: 50px;
+  color: #fff;
+}
+.movieModal .modal_wrap .contents .arl {
+  line-height: 1.5em;
+}
+.movieModal .modal_wrap .contents .rating {
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ebebeb;
+}
+.movieModal .modal_wrap .contents .age {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 700;
+  color: #111;
+  background-color: #e7d000;
+  border: 2px solid #fff;
+}
+.movieModal .modal_wrap .contents .length {
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ebebeb;
+}
+.movieModal .modal_wrap .contents .summary {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.5em;
+  color: #ebebeb;
+}
+.movieModal .modal_wrap .contents .director {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #ebebeb;
+}
+.movieModal .modal_wrap .contents .actors {
+  margin-top: 5px;
+  font-size: 20px;
+  color: #ebebeb;
+}
+.movieModal .review {
+  display: flex;
+  margin-top: 20px;
+}
+.movieModal .review input {
+  width: 20vw;
+  line-height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 18px;
+}
+.movieModal .review input:focus {
+  outline: none;
+}
+.movieModal .review select {
+  margin-left: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.movieModal .review button {
+  width: 50px;
+  margin-left: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.movieModal ul {
+  overflow-y: scroll;
+  max-height: 500px;
+}
+.MovieReview {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.MovieReview span {
+  font-size: 18px;
+  color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .movieModal .modal_wrap {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+  .movieModal .modal_wrap .photo {
+    width: 50%;
+  }
+  .movieModal .modal_wrap .contents {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  .movieModal .review input {
+    width: 100%;
+  }
+  .movieModal ul {
+    max-height: 300px;
   }
 }
