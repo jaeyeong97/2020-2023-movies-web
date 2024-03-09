@@ -1,35 +1,43 @@
 @charset "utf-8";
-
-*{
-    margin: 0;
-    padding: 0;
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
-body{
-    font-family: 'Gaegu', sans-serif;
-    font-size: 16px;
-    line-height: 20px;
-    color: #121212;
+* {
+  margin: 0;
+  padding: 0;
 }
-ul, ol{
-    list-style: none;
+body {
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 0.8px;
+  color: #121212;
 }
-a{
-    text-decoration: none;
+ul,
+ol {
+  list-style: none;
 }
-img{
-    vertical-align: top;
+a {
+  text-decoration: none;
 }
-input{
-    vertical-align: top;
-    font-family: 'Gaegu', sans-serif;
+img {
+  vertical-align: top;
 }
-button{
-    border: 0;
-    background-color: transparent;
-    vertical-align: top;
-    cursor: pointer;
-    font-family: 'Gaegu', sans-serif;
+input {
+  vertical-align: top;
+  font-family: "Pretendard-Regular", sans-serif;
 }
-select{
-    font-family: 'Gaegu', sans-serif;
+button {
+  border: 0;
+  background-color: transparent;
+  vertical-align: top;
+  cursor: pointer;
+  font-family: "Pretendard-Regular", sans-serif;
+}
+select {
+  font-family: "Pretendard-Regular", sans-serif;
 }
