@@ -1,63 +1,58 @@
-.movieHeader {
+.App {
   background-color: #0f0f0f;
+  min-height: 100vh;
 }
-.movieHeader h1 a {
+.movieHeader {
+  position: relative;
+  width: 100%;
+}
+.movieHeader h1 {
   display: block;
   text-align: center;
-  padding: 37px 0 20px 0;
+  padding: 50px 0 25px 0;
   font-size: 32px;
   line-height: 1.2em;
+  user-select: none;
   color: #ececec;
 }
-.movieHeader .years_wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-.movieHeader .years_wrap > button {
-  margin: 0 8px;
-  padding: 3px 6px;
-  border-radius: 5px;
-  background-color: #ececec;
-  color: #747474;
-  font-size: 14px;
-  font-weight: 500;
-}
-.movieHeader .selected {
+.movieHeader .flex_wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  align-items: flex-end;
 }
-.movieHeader .selected span {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 1em;
-  padding: 10px 0;
-  color: #ececec;
+.movieHeader .years_wrap {
+  margin: 10px 0;
+}
+.movieHeader .years_wrap select {
+  background-color: #6b6b6b80;
+  color: #c8c8c8;
+}
+.movieHeader .selected {
+  width: 300px;
 }
 .movieHeader .selected input {
-  width: calc(100% - 20vw);
+  width: 100%;
   box-sizing: border-box;
-  padding: 5px 10px;
-  margin-bottom: 10px;
+  padding: 10px 15px;
+  border: 1px solid #c8c8c8;
+  background-color: #6b6b6b80;
+  color: #fff;
 }
 .movieHeader .selected input:focus {
   outline: none;
 }
 .movieList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 50px 20px 0 20px;
-  background-color: #0f0f0f;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 .movieItem {
-  width: 200px;
-  margin: 20px 5px;
+  display: flex;
+  flex-direction: column;
 }
 .movieItem .photo_wrap {
   position: relative;
@@ -65,7 +60,6 @@
 .movieItem .photo img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
 }
 .movieItem .learnMore {
   position: absolute;
@@ -96,7 +90,7 @@
 .movieItem .movie_txt .mt1 {
   display: flex;
   align-items: flex-start;
-  height: 40px;
+  height: 30px;
 }
 .movieItem .movie_txt span {
   color: #ececec;
@@ -120,12 +114,9 @@
 }
 .movieItem .movie_txt .mt2 {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
-.movieItem .movie_txt .mt2 .length {
-  margin-top: 5px;
-  align-self: flex-end;
-}
+/* 모달창 시작 */
 .modal {
   display: none;
 }
@@ -142,10 +133,10 @@
 }
 .movieModal .modalClose {
   position: absolute;
-  top: 5vh;
-  right: 3vw;
-  width: 50px;
-  height: 50px;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
   z-index: 100;
 }
 .movieModal .modalClose::before,
@@ -155,8 +146,8 @@
   right: 0;
   content: "";
   display: block;
-  width: 50px;
-  height: 4px;
+  width: 30px;
+  height: 2px;
   border-radius: 5px;
   background-color: #fff;
 }
@@ -168,37 +159,38 @@
 }
 .movieModal .modal_wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 7vh 0;
+  align-items: center;
+  margin: 80px 30px 30px 30px;
 }
 .movieModal .modal_wrap .photo {
-  width: 30vw;
+  width: 100%;
+  max-width: 400px;
 }
 .movieModal .modal_wrap .photo img {
   width: 100%;
   height: auto;
 }
 .movieModal .modal_wrap .contents {
-  width: 45vw;
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
 }
 .movieModal .modal_wrap .contents .title {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
   line-height: 1em;
-  margin-bottom: 50px;
+  margin: 50px 0 20px 0;
   color: #fff;
 }
 .movieModal .modal_wrap .contents .arl {
   line-height: 1.5em;
+  margin-bottom: 30px;
+  font-size: 18px;
 }
 .movieModal .modal_wrap .contents .rating {
   margin-left: 20px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #ebebeb;
+  color: #929292;
 }
 .movieModal .modal_wrap .contents .age {
   display: inline-block;
@@ -206,101 +198,129 @@
   height: 25px;
   border-radius: 50%;
   text-align: center;
-  font-weight: 700;
   color: #111;
   background-color: #e7d000;
   border: 2px solid #fff;
 }
 .movieModal .modal_wrap .contents .length {
   margin-left: 20px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #ebebeb;
+  color: #929292;
 }
 .movieModal .modal_wrap .contents .summary {
-  margin-top: 20px;
-  font-size: 20px;
-  line-height: 1.5em;
-  color: #ebebeb;
+  margin-bottom: 20px;
+  line-height: 1.8em;
+  color: #c8c8c8;
 }
 .movieModal .modal_wrap .contents .director {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #ebebeb;
+  color: #c8c8c8;
+  margin-bottom: 5px;
 }
 .movieModal .modal_wrap .contents .actors {
-  margin-top: 5px;
-  font-size: 20px;
-  color: #ebebeb;
+  color: #c8c8c8;
+  margin-bottom: 20px;
 }
 .movieModal .review {
   display: flex;
-  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .movieModal .review input {
-  width: 20vw;
+  width: 100%;
+  max-width: 500px;
   line-height: 30px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  padding-left: 10px;
   font-size: 18px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .movieModal .review input:focus {
   outline: none;
 }
 .movieModal .review select {
   margin-left: 5px;
-  border-radius: 5px;
   border: none;
   font-size: 16px;
   font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #c8c8c8;
 }
 .movieModal .review button {
   width: 50px;
   margin-left: 5px;
-  border-radius: 5px;
   font-size: 16px;
   font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #c8c8c8;
 }
 .movieModal ul {
   overflow-y: scroll;
-  max-height: 500px;
+  max-height: 300px;
 }
 .MovieReview {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
-}
-.MovieReview span {
-  font-size: 18px;
+  padding: 10px;
   color: #fff;
 }
-@media screen and (max-width: 1024px) {
-  .movieHeader h1 a {
-    font-size: 22px;
+.MovieReview .review_txt {
+  font-size: 18px;
+}
+.MovieReview .review_txt span {
+  font-size: 16px;
+}
+.MovieReview .points_date_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.MovieReview .review_points {
+  font-size: 16px;
+}
+.MovieReview .review_date {
+  font-size: 14px;
+  color: #929292;
+}
+/* 768px */
+@media screen and (min-width: 768px) {
+  .movieHeader .flex_wrap {
+    padding-right: 30px;
   }
-  .movieHeader .years_wrap > button {
-    margin: 0 4px;
+  .movieList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 30px;
+  }
+}
+/* 1024px */
+@media screen and (min-width: 1024px) {
+  .movieHeader h1 {
+    padding: 50px 0 0 0;
+  }
+  .movieList {
+    grid-template-columns: repeat(4, 1fr);
   }
   .movieModal .modal_wrap {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
   }
   .movieModal .modal_wrap .photo {
+    max-width: 500px;
     width: 50%;
   }
   .movieModal .modal_wrap .contents {
-    width: 100%;
-    display: flex;
-    margin: 0;
-    padding: 40px;
-    box-sizing: border-box;
+    width: 50%;
+    padding-left: 30px;
   }
-  .movieModal .review input {
-    width: 100%;
+  .movieModal .modal_wrap .contents .title {
+    margin: 0 0 20px 0;
   }
-  .movieModal ul {
-    max-height: 300px;
+}
+/* 1440px */
+@media screen and (min-width: 1440px) {
+  .movieHeader .flex_wrap {
+    padding-right: 0;
+  }
+  .movieList {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
   }
 }
